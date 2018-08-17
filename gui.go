@@ -443,8 +443,8 @@ func (g *Gui) flush() error {
 				fgColor = g.SelFgColor
 				bgColor = g.SelBgColor
 			} else {
-				fgColor = g.FgColor
-				bgColor = g.BgColor
+				fgColor = v.FrameFgColor
+				bgColor = v.FrameBgColor
 			}
 
 			if err := g.drawFrameEdges(v, fgColor, bgColor); err != nil {
@@ -454,7 +454,7 @@ func (g *Gui) flush() error {
 				return err
 			}
 			if v.Title != "" {
-				if err := g.drawTitle(v, fgColor, bgColor); err != nil {
+				if err := g.drawTitle(v, v.TitleFgColor, v.TitleBgColor); err != nil {
 					return err
 				}
 			}
