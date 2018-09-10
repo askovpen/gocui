@@ -1,5 +1,6 @@
-//Help editor to Input cjk language.
-//Author fuhuizn@163.com
+// Help editor to Input cjk language.
+// Author fuhuizn@163.com
+
 package gocui
 
 import (
@@ -34,7 +35,6 @@ func (v *View) ReadEditor() []byte {
 	n, _ := v.Read(b)
 	if n > 0 {
 		return modifyCJK(b[:n])
-	} else {
-		return nil
 	}
+	return nil
 }

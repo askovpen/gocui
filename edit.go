@@ -68,10 +68,13 @@ func (v *View) EditWrite(ch rune) {
 	v.MoveCursor(runewidth.RuneWidth(ch), 0, true)
 }
 
+// EditHome cursor set to home.
 func (v *View) EditHome() error {
 	v.SetCursor(0,v.cy)
 	return nil
 }
+
+// EditEnd cursor set to end.
 func (v *View) EditEnd() error {
 	_, y := v.ox+v.cx, v.oy+v.cy
 	_, y,_ = v.realPosition(0, y)
@@ -79,6 +82,7 @@ func (v *View) EditEnd() error {
 	return nil
 }
 
+// EditDeleteLine deletes line.
 func (v *View) EditDeleteLine() error {
 	_, y := v.ox+v.cx, v.oy+v.cy
 	v.tainted = true
